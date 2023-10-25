@@ -156,6 +156,9 @@ def service_connection(key, mask):
                     # HTTPFormat(sock, "200 OK", "Content-Type: text/html", content=file.read())
                     # file.close()
 
+                elif path == "/ping":
+                    HTTPFormat(sock, "200 OK", "Content-Type: text/plain", content=b"Ping => Pong!")
+
                 elif path == "/favicon.ico":
                     if data.networkstate != "Arrived":
                         FullPrint(addr + " is retrieving a favicon")
